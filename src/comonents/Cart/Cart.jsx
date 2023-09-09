@@ -1,10 +1,16 @@
 import React from 'react'
 
-const Cart = (props) => {
-  console.log(props)
+const Cart = ({removeFromDb, cartItems}) => {
   return (
     <div>
-      <h1>Cart: {props.cartItems.length}</h1>
+      <h1>Cart: {cartItems.length}</h1>
+      {
+        cartItems.map(item => 
+      <p>
+        {item.title}
+        <button onClick={()=> removeFromDb(item)}>Remove</button>
+      </p>)
+      }
     </div>
   )
 }

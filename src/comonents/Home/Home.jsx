@@ -11,7 +11,10 @@ const Home = () => {
     let newCart = [...cartItems, selected];
     setCartItems(newCart);
   }
-  
+  let removeFromDb = product =>{
+    let rest = cartItems.filter(cartItem => cartItem.id !== product.id)
+    setCartItems(rest);
+  }
   return (
     <div className="products">
       <div className='cards'>
@@ -23,7 +26,10 @@ const Home = () => {
             ></Store>)
         }
       </div>
-      <Cart cartItems={cartItems}></Cart>
+      <Cart
+        removeFromDb={removeFromDb}
+        cartItems={cartItems}
+      ></Cart>
     </div>
   )
 }
