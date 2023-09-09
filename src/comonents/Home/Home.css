@@ -1,3 +1,8 @@
+.products{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
 .card{
     height: 200px;
     width: 600px;
@@ -10,6 +15,13 @@
 }
 .card h1{
     margin: 0px;
+}
+.button{
+    display: flex;
+    justify-content: center;
+}
+.button button{
+    margin: 0px 20px 20px 20px;
 }
 .card button{
     border: none;
