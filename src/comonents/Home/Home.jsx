@@ -1,19 +1,24 @@
-import React from 'react';
-import './Home.css'
+import React, { useState } from 'react';
+import './Home.css';
 import Cart from '../Cart/Cart';
+import useProducts from '../hooks/useProducts';
+import Store from '../Store/Store';
 
 const Home = () => {
+  let [cart, setCart] = useState();
+  let [products] = useProducts();
+  let manageCart = selected => {
+    let newCart = [...cart, selected];
+    setCart(newCart);
+  }
   return (
     <div className="products">
-      <div className='card'>
-        <h1>Mahdi hasan</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa similique obcaecati incidunt ad, quam magnam in. Quam deserunt consequuntur facere possimus? Iure eum reprehenderit mollitia labore. Voluptatum voluptatem incidunt ex.</p>
-        <div className='button'>
-          <button>Add to cart</button>
-          <button>Details</button>
-        </div>
+      <div className='cards'>
+        {
+          products.map(product => <Store product={product}></Store>)
+        }
       </div>
-      <Cart></Cart>
+      <Cart cart={cart}></Cart>
     </div>
   )
 }

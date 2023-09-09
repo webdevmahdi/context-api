@@ -3,35 +3,7 @@
     grid-template-columns: 2fr 1fr;
     gap: 30px;
 }
-.card{
-    height: 200px;
-    width: 600px;
-    margin: 30px;
-    background-color: #DCBBFC;
-    border-radius: 20px;
+.cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
-.card p{
-    text-align: justify;
-}
-.card h1{
-    margin: 0px;
-}
-.button{
-    display: flex;
-    justify-content: center;
-}
-.button button{
-    margin: 0px 20px 20px 20px;
-}
-.card button{
-    border: none;
-    border-radius: 10px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: 0.5s;
-    padding: 10px 20px;
-}
-
-.card button:hover {
-    background-color: #646cff;
-  }
