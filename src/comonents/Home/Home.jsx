@@ -5,20 +5,25 @@ import useProducts from '../hooks/useProducts';
 import Store from '../Store/Store';
 
 const Home = () => {
-  let [cart, setCart] = useState();
+  let [cartItems, setCartItems] = useState([]);
   let [products] = useProducts();
   let manageCart = selected => {
-    let newCart = [...cart, selected];
-    setCart(newCart);
+    let newCart = [...cartItems, selected];
+    setCartItems(newCart);
   }
+  
   return (
     <div className="products">
       <div className='cards'>
         {
-          products.map(product => <Store product={product}></Store>)
+          products.map(product => <Store 
+            product={product}
+            key={product.id}
+            manageCart={manageCart}
+            ></Store>)
         }
       </div>
-      <Cart cart={cart}></Cart>
+      <Cart cartItems={cartItems}></Cart>
     </div>
   )
 }

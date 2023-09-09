@@ -1,10 +1,10 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
 
-const Cart = () => {
+const Cart = (props) => {
+  console.log(props)
   return (
     <div>
-      <h1>Cart</h1>
+      <h1>Cart: {props.cartItems.length}</h1>
     </div>
   )
 }
