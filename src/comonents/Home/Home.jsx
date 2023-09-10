@@ -8,10 +8,16 @@ const Home = () => {
   let [cartItems, setCartItems] = useState([]);
   let [products] = useProducts();
   let manageCart = selected => {
-    let newCart = [...cartItems, selected];
-    setCartItems(newCart);
+    let exists = cartItems.find(item => item.id === selected.id);
+    if (!exists) {
+      let newCart = [...cartItems, selected];
+      setCartItems(newCart);
+    }
+    else{
+      alert("Sorry you can't add it, Becuase already its abailable in the cart")
+    }
   }
-  let removeFromDb = product =>{
+  let removeFromDb = product => {
     let rest = cartItems.filter(cartItem => cartItem.id !== product.id)
     setCartItems(rest);
   }
@@ -19,14 +25,15 @@ const Home = () => {
     <div className="products">
       <div className='cards'>
         {
-          products.map(product => <Store 
+          products.map(product => <Store
             product={product}
             key={product.id}
             manageCart={manageCart}
-            ></Store>)
+          ></Store>)
         }
       </div>
       <Cart
+        key={cartItems.id}
         removeFromDb={removeFromDb}
         cartItems={cartItems}
       ></Cart>

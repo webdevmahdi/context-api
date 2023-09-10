@@ -2,7 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './comonents/Header/Header';
 import Home from './comonents/Home/Home';
-import Cart from './comonents/Cart/Cart';
+import Details from './comonents/Details/Details'
+import NotFound from './comonents/NotFound/NotFound';
 
 function App() {
 
@@ -12,9 +13,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/cart' element={<Cart></Cart>}>
-          <Route path=':product'></Route>
-        </Route>
+        <Route path='/product/:product' element={<Details></Details>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
   )

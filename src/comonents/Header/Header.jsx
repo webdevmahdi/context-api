@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className='navigation'>
         <NavLink to='/home'>Home</NavLink>
-        <NavLink to='/cart'>Cart</NavLink>
+        <NavLink to='/product'>Details</NavLink>
     </div>
   )
 }

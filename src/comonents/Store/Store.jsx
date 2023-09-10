@@ -1,5 +1,6 @@
 import React from 'react';
 import './Store.css'
+import { Link } from 'react-router-dom';
 
 const Store = ({product, manageCart}) => {
     let {description, title} = product;
@@ -9,7 +10,7 @@ const Store = ({product, manageCart}) => {
         <p>{description}</p>
         <div className='button'>
           <button onClick={()=> manageCart(product)}>Add to cart</button>
-          <button>Details</button>
+          <Link to='/product'>Details</Link>
         </div>
       </div>
   )
